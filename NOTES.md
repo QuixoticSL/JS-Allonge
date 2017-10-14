@@ -17,3 +17,10 @@
 - If we start a literal with a zero, it is an octal literal. So the literal 042 is 42 base 8, which is actually 34 base 10.
 - For example, the largest integer JavaScript can safely1 handle is 9007199254740991, or 2^53 - 1.
 - A computer’s internal representation for a floating point number is binary, while our literal number was in base ten. This makes no meaningful difference for integers, but it does for fractions, because some fractions base 10 do not have exact representations base 2.
+
+### October 14th 2017 ###
+- `() => 0` a function that applies no values and returns 0.
+- We have two types of values with respect to identity: Value types and reference types. Value types share the same identity if they have the same contents. Reference types do not. "Function" is a reference type.
+- We apply functions to arguments.
+- `(() => 0)()` outputs `=> 0`. Since we aren't giving the function any arguments we are leaving the last `()` empty.
+- We can make a function that returns a value by putting the value to the right of the arrow.
