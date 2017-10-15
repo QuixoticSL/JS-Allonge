@@ -24,3 +24,14 @@
 - We apply functions to arguments.
 - `(() => 0)()` outputs `=> 0`. Since we aren't giving the function any arguments we are leaving the last `()` empty.
 - We can make a function that returns a value by putting the value to the right of the arrow.
+
+### October 15th 2017 ###
+- The comma operator in JavaScript is interesting. It takes two arguments, evaluates them both, and itself evaluates to the value of the right-hand argument. `(1, 2)` would be `2`.
+- A block has zero or more statements, separated by semicolons.
+- Returns the result of evaluating a block that has no statements. So `(() => {})()` would throw out `undefined`.
+- `undefined` is a value that means “I don’t have a value.” But it’s still a value.
+- `void` is an operator that takes any value and evaluates to `undefined`, always. By convention we are suppose to use `void 0`, which throws out `void 0 = > undefined`.
+- A block is a list of JS statements separated by semicolons. `(() => { 1 + 1; 2 + 2 })()` for instance spits out `undefined`.
+- A block with one expression does not behave like an expression, and a block with more than one expression does not behave like an expression constructed with the comma operator.
+- So how do we get a function that evaluates a block to return a value when applied? With the `return` keyword and any expression: `(() => { return 1 })()` spits out 1.
+- Statements belong inside blocks and only inside blocks.
