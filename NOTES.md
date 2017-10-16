@@ -35,3 +35,9 @@
 - A block with one expression does not behave like an expression, and a block with more than one expression does not behave like an expression constructed with the comma operator.
 - So how do we get a function that evaluates a block to return a value when applied? With the `return` keyword and any expression: `(() => { return 1 })()` spits out 1.
 - Statements belong inside blocks and only inside blocks.
+
+### October 16th 2017 ###
+- `() => () => true` a function that evaluates to another function which returns `true`.
+- To apply a function with an argument (or arguments), we put the argument (or arguments) within the parentheses, like this: `((diameter) => diameter * 3.14159265)(2)` which returns `6.2831853`. You give the function a parameter `2` which is the diameter and it runs the code in the body, thus returning a result.
+- `((room, board) => room + board)(800, 150)` writing a functions with two arguments. Here we are doing addittion. 
+- Like most contemporary programming languages, JavaScript uses the “call by value” evaluation strategy (when to evaluate the arguments) .
