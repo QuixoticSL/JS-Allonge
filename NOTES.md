@@ -40,4 +40,9 @@
 - `() => () => true` a function that evaluates to another function which returns `true`.
 - To apply a function with an argument (or arguments), we put the argument (or arguments) within the parentheses, like this: `((diameter) => diameter * 3.14159265)(2)` which returns `6.2831853`. You give the function a parameter `2` which is the diameter and it runs the code in the body, thus returning a result.
 - `((room, board) => room + board)(800, 150)` writing a functions with two arguments. Here we are doing addittion. 
-- Like most contemporary programming languages, JavaScript uses the “call by value” evaluation strategy (when to evaluate the arguments) .
+- Like most contemporary programming languages, JavaScript uses the “call by value” evaluation strategy (when to evaluate the arguments).
+
+### October 17th 2017 ###
+- `(x) => (y) => x` where the first `x` is an argument, `y` is another argument and the last `x` is an expression referring to a variable.
+- Invoking a function means applying zero or more arguments.
+- Call by sharing is generally understood to be a specialization of call by value, and it explains why some values are known as value types and other values are known as reference types.
