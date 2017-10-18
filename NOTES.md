@@ -46,3 +46,7 @@
 - `(x) => (y) => x` where the first `x` is an argument, `y` is another argument and the last `x` is an expression referring to a variable.
 - Invoking a function means applying zero or more arguments.
 - Call by sharing is generally understood to be a specialization of call by value, and it explains why some values are known as value types and other values are known as reference types.
+
+### October 18th 2017 ###
+- The function `(y) => x` is interesting. It contains a free variable, `x`. A free variable is one that is not bound within the function.
+- Functions containing no free variables are called pure functions. Functions containing one or more free variables are called closures. A pure function can contain a closure.
