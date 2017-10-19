@@ -50,3 +50,10 @@
 ### October 18th 2017 ###
 - The function `(y) => x` is interesting. It contains a free variable, `x`. A free variable is one that is not bound within the function.
 - Functions containing no free variables are called pure functions. Functions containing one or more free variables are called closures. A pure function can contain a closure.
+
+### October 19th 2017 ###
+- `(x) => x` is called the I Combinator, or the Identity Function. `(x) => (y)` => x is called the K Combinator, or Kestrel.
+- `(x) => (y) => (z) => x + y + z` is the exact same as `(x, y, z) => x + y + z`
+- The first function is the result of currying the second function. Calling a curried function with only some of its arguments is sometimes called partial application.
+- JavaScript always searches for a binding starting with the functions own environment and then each parent in turn until it finds one.
+- (x) => (x, y) => (w, z) => (w) => x + y + z. When evaluating x + y + z, JavaScript will find x and y in the great-grandparent scope and z in the parent scope. The x in the great-great-grandparent scope is ignored, as are both ws. When a variable has the same name as an ancestor environment’s binding, it is said to *shadow* the ancestor.
