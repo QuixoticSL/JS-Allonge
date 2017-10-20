@@ -57,3 +57,7 @@
 - The first function is the result of currying the second function. Calling a curried function with only some of its arguments is sometimes called partial application.
 - JavaScript always searches for a binding starting with the functions own environment and then each parent in turn until it finds one.
 - (x) => (x, y) => (w, z) => (w) => x + y + z. When evaluating x + y + z, JavaScript will find x and y in the great-grandparent scope and z in the parent scope. The x in the great-great-grandparent scope is ignored, as are both ws. When a variable has the same name as an ancestor environment’s binding, it is said to *shadow* the ancestor.
+
+### October 20th 2017 ###
+- In order to bind 3.14159265 to the name PI, we’ll need a function with a parameter of PI applied to an argument of 3.14159265. If we put our function expression in parentheses, we can apply it to the argument of 3.14159265: `((PI) => (diameter) => diameter * PI)(3.1415)`.
+- We can bind anything we want in an expression by wrapping it in a function that is immediately invoked with the value we want to bind.
