@@ -69,3 +69,10 @@
 - We have one binding in the environment representing our regular argument, and another our “constant.”
 - We use the `const` keyword in a _const statement_. _const statements_ occur inside blocks, we can’t use them when we write a fat arrow that has an expression as its body.
 - This underscores what we’ve said: if we have an expression that evaluates to a function, we apply it with `()`. A name that’s bound to a function is a valid expression evaluating to a function.
+
+### October 22th 2017 ###
+- Lexical scoping, because we can discover where a name is bound by looking at the source code for the program.
+- Binding values to names with const works just like binding values to names with parameter invocations, it uses lexical scope.
+- We say that when we bind a variable using a parameter inside another binding, the inner binding shadows the outer binding. It has effect inside its own scope, but does not affect the binding in the enclosing scope.
+- Names bound with const shadow enclosing bindings just like parameters.
+- `if (true) {// an immediately invoked block statement (IIBS)}`
