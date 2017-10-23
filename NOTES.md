@@ -62,7 +62,7 @@
 - In order to bind 3.14159265 to the name PI, we’ll need a function with a parameter of PI applied to an argument of 3.14159265. If we put our function expression in parentheses, we can apply it to the argument of 3.14159265: `((PI) => (diameter) => diameter * PI)(3.1415)`.
 - We can bind anything we want in an expression by wrapping it in a function that is immediately invoked with the value we want to bind.
 
-### October 21th 2017 ###
+### October 21st 2017 ###
 - We can turn things inside-out by putting the binding inside our diameter calculating function, like this: `(diameter) => ((PI) => diameter * PI)(3.14159265)`. The “outer” function describes its parameters. Everything else is encapsulated in its body. 
 - Invoking functions is considerably more expensive than evaluating expressions.
 - Pass PI along with the diameter argument: `(diameter, PI) => diameter * PI`.
@@ -70,9 +70,13 @@
 - We use the `const` keyword in a _const statement_. _const statements_ occur inside blocks, we can’t use them when we write a fat arrow that has an expression as its body.
 - This underscores what we’ve said: if we have an expression that evaluates to a function, we apply it with `()`. A name that’s bound to a function is a valid expression evaluating to a function.
 
-### October 22th 2017 ###
+### October 22nd 2017 ###
 - Lexical scoping, because we can discover where a name is bound by looking at the source code for the program.
 - Binding values to names with const works just like binding values to names with parameter invocations, it uses lexical scope.
 - We say that when we bind a variable using a parameter inside another binding, the inner binding shadows the outer binding. It has effect inside its own scope, but does not affect the binding in the enclosing scope.
 - Names bound with const shadow enclosing bindings just like parameters.
 - `if (true) {// an immediately invoked block statement (IIBS)}`
+
+### October 23rd 2017 ###
+- `const repeat = (str) => str + str` This syntax binds an anonymous function to a name in an environment, but the function itself remains anonymous.
+- 
