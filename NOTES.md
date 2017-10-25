@@ -79,4 +79,7 @@
 
 ### October 23rd 2017 ###
 - `const repeat = (str) => str + str` This syntax binds an anonymous function to a name in an environment, but the function itself remains anonymous.
-- 
+
+### October 25th 2017 ###
+- Placing a name between the `function` keyword and the argument list names the function. 
+- `const double = function repeat (str) {return str + str;}` where `double` is the name of the environment and `repeat` is the actual name of the function. This is a named function expression. 
