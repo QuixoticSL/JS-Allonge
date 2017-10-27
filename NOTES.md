@@ -83,3 +83,7 @@
 ### October 25th 2017 ###
 - Placing a name between the `function` keyword and the argument list names the function. 
 - `const double = function repeat (str) {return str + str;}` where `double` is the name of the environment and `repeat` is the actual name of the function. This is a named function expression. 
+
+### October 27th 2017 ###
+- Function declarations are hoisted to the top of the function in which they occur.
+- This behaviour is intentional on the part of JavaScript’s design to facilitate a certain style of programming where you put the main logic up front, and the “helper functions” at the bottom.
