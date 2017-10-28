@@ -87,3 +87,11 @@
 ### October 27th 2017 ###
 - Function declarations are hoisted to the top of the function in which they occur.
 - This behaviour is intentional on the part of JavaScript’s design to facilitate a certain style of programming where you put the main logic up front, and the “helper functions” at the bottom.
+
+### October 28th 2017 ###
+- Function declarations are formally only supposed to be made at what we might call the “top level” of a function. Function declarations are not supposed to occur inside of blocks.
+- Another caveat is that a function declaration cannot exist inside of any expression, otherwise it’s a function expression, for instance: `(function trueDat () { return true })` is a function expression because it is in parentheses.
+- Generally speaking, a function that either takes functions as arguments, or returns a function, or both, is referred to as a “higher-order” function.
+- A combinator is a higher-order function that uses only function application and earlier defined combinators to define a result from its arguments. In JS terms this refers to: Higher-order pure functions that take only functions as arguments and return a function.
+- The *Compose* combinator: `const compose = (a, b) => (c) => a(b(c))`
+- *Compose* in an example: `const addOne = (number) => number + 1;` would turn into: `const doubleOfAddOne = (number) => doubleOf(addOne(number))`. Looks like an onion with it's many different layers or functionality.
