@@ -95,3 +95,8 @@
 - A combinator is a higher-order function that uses only function application and earlier defined combinators to define a result from its arguments. In JS terms this refers to: Higher-order pure functions that take only functions as arguments and return a function.
 - The *Compose* combinator: `const compose = (a, b) => (c) => a(b(c))`
 - *Compose* in an example: `const addOne = (number) => number + 1;` would turn into: `const doubleOfAddOne = (number) => doubleOf(addOne(number))`. Looks like an onion with it's many different layers or functionality.
+
+### October 29th 2017 ###
+- Code that uses a lot of combinators tends to name the verbs and adverbs (like doubleOf, addOne, and compose) while avoiding language keywords and the names of nouns (like number).
+- A *function decorator* is a higher-order function that takes one function as an argument, returns another function, and the returned function is a variation of the argument function. Example: `const not = (fn) => (x) => !fn(x)`
+- Function decorators aren’t strict about being pure functions, so there’s more latitude for making decorators than combinators.
