@@ -106,3 +106,4 @@
 - A decorator called *Once* which is only called once obviously, but it ensures that certain side effects don't happene to be repeated. A decorator called *Maybe* which does nothing if it is given the value of nothing (in this case `null` or `undefined`) as an argument.
 - These decorators become really useful when chained together, for example transfering money: `const invokeTransfer = once(maybe(actuallyTransfer(...)));`
 - Another basic building block is *partial application*. When a function takes multiple arguments, we “apply” the function to the arguments by evaluating it with all of the arguments, producing a value. But what if we only supply some of the arguments? In that case, we can’t get the final value, but we can get a function that represents *part* of our application.
+- The "Underscore" library provides a higher-order function called *map* which applies another function to each element of an array: `_.map([1, 2, 3], (n) => n * n) //=> [1, 4, 9]`
