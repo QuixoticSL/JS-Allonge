@@ -103,3 +103,6 @@
 
 ### October 30th 2017 ###
 - One of the most basic of these building blocks is composition: `const cookAndEat = (food) => eat(cook(food));` which means chaining two functions together. Writing functions that can be composed in various ways.
+- A decorator called *Once* which is only called once obviously, but it ensures that certain side effects don't happene to be repeated. A decorator called *Maybe* which does nothing if it is given the value of nothing (in this case `null` or `undefined`) as an argument.
+- These decorators become really useful when chained together, for example transfering money: `const invokeTransfer = once(maybe(actuallyTransfer(...)));`
+- Another basic building block is *partial application*. When a function takes multiple arguments, we “apply” the function to the arguments by evaluating it with all of the arguments, producing a value. But what if we only supply some of the arguments? In that case, we can’t get the final value, but we can get a function that represents *part* of our application.
