@@ -100,3 +100,6 @@
 - Code that uses a lot of combinators tends to name the verbs and adverbs (like doubleOf, addOne, and compose) while avoiding language keywords and the names of nouns (like number).
 - A *function decorator* is a higher-order function that takes one function as an argument, returns another function, and the returned function is a variation of the argument function. Example: `const not = (fn) => (x) => !fn(x)`
 - Function decorators aren’t strict about being pure functions, so there’s more latitude for making decorators than combinators.
+
+### October 30th 2017 ###
+- One of the most basic of these building blocks is composition: `const cookAndEat = (food) => eat(cook(food));` which means chaining two functions together. Writing functions that can be composed in various ways.
