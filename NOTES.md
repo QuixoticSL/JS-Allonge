@@ -108,3 +108,8 @@
 - Another basic building block is *partial application*. When a function takes multiple arguments, we “apply” the function to the arguments by evaluating it with all of the arguments, producing a value. But what if we only supply some of the arguments? In that case, we can’t get the final value, but we can get a function that represents *part* of our application.
 - The "Underscore" library provides a higher-order function called *map* which applies another function to each element of an array: `_.map([1, 2, 3], (n) => n * n) //=> [1, 4, 9]`
 - `mapWith` takes any function as an argument and returns a partially applied map function.
+
+### October 31st 2017 ###
+- Although `arguments` looks like an array, it isn’t an array: It’s more like an object that happens to bind some values to properties with names that look like integers starting with zero.
+- `arguments` always contains all of the arguments passed to a function, regardless of how many are declared.
+- The most common use of the `arguments` binding is to build functions that can take a variable number of arguments.
