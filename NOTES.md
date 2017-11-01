@@ -113,3 +113,10 @@
 - Although `arguments` looks like an array, it isn’t an array: It’s more like an object that happens to bind some values to properties with names that look like integers starting with zero.
 - `arguments` always contains all of the arguments passed to a function, regardless of how many are declared.
 - The most common use of the `arguments` binding is to build functions that can take a variable number of arguments.
+
+### November 1st 2017 ###
+- Instead of being bound when the function is invoked, the fat arrow function always acquires the bindings for `this` and `arguments` from its enclosing scope, just like any other binding.
+- Fat arrow functions are designed to be very lightweight and are often used with constructs like mapping or callbacks to emulate syntax.
+- Arguments in functions are passed by sharing which is also known as "pass by value".
+- Fat arrow functions have blocks as their bodies.
+- Function declarations are always *hoisted to the top*.
