@@ -120,3 +120,8 @@
 - Arguments in functions are passed by sharing which is also known as "pass by value".
 - Fat arrow functions have blocks as their bodies.
 - Function declarations are always *hoisted to the top*.
+
+### November 2nd 2017 ###
+- “Unary” is a function decorator that modifies the number of arguments a function takes: Unary takes any function and turns it into a function taking exactly one argument. The most common use case is to fix a problem. JavaScript has a `.map` method for arrays, and many libraries offer a `map` function with the same semantics: `['1', '2', '3'].map(parseFloat)` which transforms the strings in the array into floats.
+- JavaScript’s `map` actually calls each function with three arguments: The element, the index of the element in the array, and the array itself.
+- One of the most basic combinators is the “K Combinator,” nicknamed the “Kestrel:” `const K = (x) => (y) => x;`
