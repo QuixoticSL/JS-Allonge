@@ -125,3 +125,12 @@
 - “Unary” is a function decorator that modifies the number of arguments a function takes: Unary takes any function and turns it into a function taking exactly one argument. The most common use case is to fix a problem. JavaScript has a `.map` method for arrays, and many libraries offer a `map` function with the same semantics: `['1', '2', '3'].map(parseFloat)` which transforms the strings in the array into floats.
 - JavaScript’s `map` actually calls each function with three arguments: The element, the index of the element in the array, and the array itself.
 - One of the most basic combinators is the “K Combinator,” nicknamed the “Kestrel:” `const K = (x) => (y) => x;`
+
+### November 3rd 2017 ###
+- The "K Combinator" has some surprising applications. One is when you want to do something with a value for side-effects, but keep the value around. 
+- `tap` is a traditional name borrowed from various Unix shell commands. It takes a value and returns a function that always returns the value, but if you pass it a function, it executes the function for side-effects.
+- A common problem in programming is checking for `null` or `undefined` (hereafter called “nothing,” while all other values including `0`, `[]` and `false` will be called “something”).
+- `maybe` reduces the logic of checking for nothing to a function call: `maybe((a, b, c) => a + b + c)(1, 2, 3) //=> 6`
+- `once` is an extremely helpful combinator. It ensures that a function can only be called, well, once. You pass it a function, and you get a function back. That function will call your function once, and thereafter will return `undefined` whenever it is called.
+- *Left-Variadic Functions* or a *variadic function* is a function that is designed to accept a variable number of arguments. ECMAScript 2015 only permits gathering parameters from the end of the parameter list. Not the beginning!
+- a *right-variadic* function, meaning that it has one or more fixed arguments, and the rest are gathered into the rightmost argument
