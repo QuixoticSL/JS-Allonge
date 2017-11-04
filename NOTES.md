@@ -134,3 +134,11 @@
 - `once` is an extremely helpful combinator. It ensures that a function can only be called, well, once. You pass it a function, and you get a function back. That function will call your function once, and thereafter will return `undefined` whenever it is called.
 - *Left-Variadic Functions* or a *variadic function* is a function that is designed to accept a variable number of arguments. ECMAScript 2015 only permits gathering parameters from the end of the parameter list. Not the beginning!
 - a *right-variadic* function, meaning that it has one or more fixed arguments, and the rest are gathered into the rightmost argument
+
+### November 4th 2017 ###
+- *compose3 syntax*: `const compose3 = (a, b, c) => (d) => a(b(c(d)))`
+- First step to writing a recursive compose is writing the *degenerate* case, for instance if `compose` only took one argument: `const compose = (a) => a`.
+- The next thing is to have a way of breaking a piece off the problem. We can do this with a variadic function: `const compose = (a, ...rest) => "to be determined".
+- To compose a series of functions together, creating a new one. And the value is the same: We can write smaller, single purpose functions and put them together in different ways.
+- Sometimes it makes more sense to compose functions in data flow order, as in “The value flows through a and then through b.” For this, we can use the `pipeline` function.
+- Comparing `pipeline` to `compose`, pipeline says “add one to the number and then double it.” Compose says, “double the result of adding one to the number.” Both do the same job, but communicate their intention in opposite ways.
