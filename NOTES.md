@@ -142,3 +142,8 @@
 - To compose a series of functions together, creating a new one. And the value is the same: We can write smaller, single purpose functions and put them together in different ways.
 - Sometimes it makes more sense to compose functions in data flow order, as in “The value flows through a and then through b.” For this, we can use the `pipeline` function.
 - Comparing `pipeline` to `compose`, pipeline says “add one to the number and then double it.” Compose says, “double the result of adding one to the number.” Both do the same job, but communicate their intention in opposite ways.
+
+### November 5th 2017 ###
+- JavaScript inherited an operator from the C family of languages, the ternary operator. It’s the only operator that takes three arguments. It looks like this: `first ? second : third`. It evaluates `first`, and if `first` is “truthy”, it evaluates `second` and that is its value. If `first` is not truthy, it evaluates `third` and that is its value.
+- The ternary operator is an *expression* and not a *statement*.
+- JavaScript always evaluates the expressions for parameters before passing the values to a function to invoke.
