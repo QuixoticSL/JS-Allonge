@@ -147,3 +147,6 @@
 - JavaScript inherited an operator from the C family of languages, the ternary operator. It’s the only operator that takes three arguments. It looks like this: `first ? second : third`. It evaluates `first`, and if `first` is “truthy”, it evaluates `second` and that is its value. If `first` is not truthy, it evaluates `third` and that is its value.
 - The ternary operator is an *expression* and not a *statement*.
 - JavaScript always evaluates the expressions for parameters before passing the values to a function to invoke.
+
+### November 6th 2017 ###
+- Array literals are expressions, and arrays are reference types. We can see that each time an array literal is evaluated, we get a new, distinct array, even if it contains the exact same elements.
