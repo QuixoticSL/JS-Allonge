@@ -150,3 +150,9 @@
 
 ### November 6th 2017 ###
 - Array literals are expressions, and arrays are reference types. We can see that each time an array literal is evaluated, we get a new, distinct array, even if it contains the exact same elements.
+
+### November 7th 2017 ###
+- Arrays store references to the things you put in them and not the actual values, just references.
+- Array literal: `const wrap = (something) => [something];`
+- Sometimes we need to extract arrays from arrays. Here is the most common pattern: Extracting the head and gathering everything but the head from an array.
+- `...` is a *gatherer*. `const oneTwoThree = ["one", "two", "three"];` followed by `["zero", ...oneTwoThree]` does `["zero", "one", "two", "three"]`.
