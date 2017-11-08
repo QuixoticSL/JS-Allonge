@@ -156,3 +156,6 @@
 - Array literal: `const wrap = (something) => [something];`
 - Sometimes we need to extract arrays from arrays. Here is the most common pattern: Extracting the head and gathering everything but the head from an array.
 - `...` is a *gatherer*. `const oneTwoThree = ["one", "two", "three"];` followed by `["zero", ...oneTwoThree]` does `["zero", "one", "two", "three"]`.
+
+### November 8th 2017 ###
+- But we can also define a list by describing a rule for building lists. One of the simplest, and longest-standing in computer science, is to say that a list is: Empty or consists of an element concatenated with a list.
