@@ -159,3 +159,10 @@
 
 ### November 8th 2017 ###
 - But we can also define a list by describing a rule for building lists. One of the simplest, and longest-standing in computer science, is to say that a list is: Empty or consists of an element concatenated with a list.
+
+
+### November 9th 2017 ###
+- Recursive algorithms follow the “divide and conquer” strategy for solving a problem: divide the problem into smaller problems, if a smaller problem is solvable solve the small problem, if a smaller problem is not solvable divide and conquer that problem, when all small problems have been solved, compose the solution into one big solution. This simpler form of “divide and conquer” is called *linear recursion*.
+- Sometimes we want to *flatten* an array, that is, an array of arrays needs to be turned into one array of elements that aren’t arrays.
+- How do we decide whether a smaller problem is solvable? We need a test for the terminal case: `isArray`.
+- The usual “terminal case” will be that flattening an empty array will produce an empty array. The next terminal case is that if an element isn’t an array, we don’t flatten it, and can put it together with the rest of our solution directly. Whereas if an element is an array, we’ll flatten it and put it together with the rest of our solution.
