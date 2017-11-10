@@ -166,3 +166,6 @@
 - Sometimes we want to *flatten* an array, that is, an array of arrays needs to be turned into one array of elements that aren’t arrays.
 - How do we decide whether a smaller problem is solvable? We need a test for the terminal case: `isArray`.
 - The usual “terminal case” will be that flattening an empty array will produce an empty array. The next terminal case is that if an element isn’t an array, we don’t flatten it, and can put it together with the rest of our solution directly. Whereas if an element is an array, we’ll flatten it and put it together with the rest of our solution.
+
+### November 10th 2017 ###
+- Another common problem is applying a function to every element of an array. By using linear recursion to solve this problem we are using something called *mapping*.
