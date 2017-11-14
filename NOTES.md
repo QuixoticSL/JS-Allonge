@@ -169,3 +169,7 @@
 
 ### November 10th 2017 ###
 - Another common problem is applying a function to every element of an array. By using linear recursion to solve this problem we are using something called *mapping*.
+
+### November 14th 2017 ###
+- A “tail-call” occurs when a function’s last act is to invoke another function, and then return whatever the other function returns.
+- This is a very important characteristic of JavaScript: *If a function makes a call in tail position, JavaScript optimizes away the function call overhead and stack space.*
