@@ -173,3 +173,28 @@
 ### November 14th 2017 ###
 - A “tail-call” occurs when a function’s last act is to invoke another function, and then return whatever the other function returns.
 - This is a very important characteristic of JavaScript: *If a function makes a call in tail position, JavaScript optimizes away the function call overhead and stack space.*
+
+### November 15th 2017 ###
+- Our `[first, ...rest]` approach to recursion is slow because that it creates a lot of temporary arrays, and it spends an enormous amount of time copying elements into arrays that end up being discarded.
+- The 704 had a 36-bit word, meaning that it was very fast to store and retrieve 36-bit values. The CPU’s instruction set featured two important macros: `CAR` would fetch 15 bits representing the Contents of the Address part of the Register, while `CDR` would fetch the Contents of the Decrement part of the Register.
+- Having these instructions be very fast was important to those early designers: They were working on one of the first high-level languages (COBOL and FORTRAN being the others), and computers in the late 1950s were extremely small and slow by today’s standards. Although the 704 used core memory, it still used vacuum tubes for its logic. Thus, the design of programming languages and algorithms was driven by what could be accomplished with limited memory and performance.
+
+- Using two-element arrays to represent cons cells:
+```javascript
+const cons = (a, d) => [a, d],
+car  = ([a, d]) => a,
+cdr  = ([a, d]) => d;
+```
+
+- A linked list:
+```javascript
+const node5 = [5,null],
+node4 = [4, node5],
+node3 = [3, node4],
+node2 = [2, node3],
+node1 = [1, node2];
+    
+const oneToFive = node1;
+```
+
+- Again, it’s just extracting a reference from a cons cell, it’s very fast. In Lisp, it’s blazingly fast because it happens in hardware. There’s no making copies of arrays, the time to `cdr` a list with five elements is the same as the time to `cdr a list with 5,000 elements, and no temporary arrays are needed. In JavaScript, it’s still much, much, much faster to get all the elements except the head from a linked list than from an array. Getting one reference to a structure that already exists is faster than copying a bunch of elements.
