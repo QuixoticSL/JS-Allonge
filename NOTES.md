@@ -202,3 +202,17 @@ const oneToFive = node1;
 ### November 16th 2017 ###
 - Linked lists are fast for a few things, like taking the front element off a list, and taking the remainder of a list. But not for iterating over a list: Pointer chasing through memory is quite a bit slower than incrementing an index. In addition to the extra fetches to dereference pointers, pointer chasing suffers from cache misses. And if you want an arbitrary item from a list, you have to iterate through the list element by element, whereas with the indexed array you just fetch it.
 - Arrays avoid this problem by pessimistically copying all the references whenever we extract an element or sequence of elements from them
+
+### November 17th 2017 ###
+- Lists are not the only way to represent collections of things, but they are the “oldest” data structure in the history of high level languages, because they map very closely to the way the hardware is organized in a computer.
+- Dictionaries store key-value pairs, so instead of binding `NAME` to `0` and then storing a name in an array at index 0, we can bind a name directly to `name` in a dictionary, and we let JavaScript sort out whether the implementation is a list of key-value pairs, a hashed collection, a tree of some sort, or anything else.
+- JavaScript has dictionaries, and it calls them “objects.” The word “object” is loaded in programming circles, due to the widespread use of the term “object-oriented programming” that was coined by Alan Kay but has since come to mean many, many things to many different people.
+- `{ year: 2012, month: 6, day: 14}`
+- Objects use [] to access the values by name, using a string:  
+
+```javascript
+{ year: 2012, month: 6, day: 14}
+['day'] //14
+```
+
+- `date['day'] === date.day //true` If the name is an alphanumeric string conforming to the same rules as names of variables, there’s a simplified syntax for accessing the values.
