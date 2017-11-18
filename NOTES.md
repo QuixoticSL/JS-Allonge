@@ -216,3 +216,17 @@ const oneToFive = node1;
 ```
 
 - `date['day'] === date.day //true` If the name is an alphanumeric string conforming to the same rules as names of variables, there’s a simplified syntax for accessing the values.
+
+### November 18th 2017 ###
+- Destructuring objects:
+
+```javascript
+const {name: { first: given, last: surname}, occupation: { title: title } } = us\
+er;
+
+surname
+  //=> "Braithwaite"
+
+title
+  //=> "Author"
+```
