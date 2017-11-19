@@ -230,3 +230,6 @@ surname
 title
   //=> "Author"
 ```
+
+### November 19th 2017 ###
+- Linked lists are constructed back-to-front, but we iterate through them front-to-back. So to copy a list, we have to save all the bits on the call stack and then construct the list from back-to-front as all the recursive calls return.
