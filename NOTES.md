@@ -233,3 +233,28 @@ title
 
 ### November 19th 2017 ###
 - Linked lists are constructed back-to-front, but we iterate through them front-to-back. So to copy a list, we have to save all the bits on the call stack and then construct the list from back-to-front as all the recursive calls return.
+- In JavaScript, almost every type of value can mutate. Their identities stay the same, but not their structure. Specifically, arrays and objects can mutate.
+(Adding, changing values of arrays and objects)
+
+- Shadowing:
+```javascript
+const allHallowsEve = [2012, 10, 31];
+(function (halloween) {
+  halloween = [2013, 10, 31];
+})(allHallowsEve);
+allHallowsEve
+  //=> [2012, 10, 31]
+```
+The outer value of `allHallowsEve` was not changed because all we did was rebind the name `halloween` within the inner environment. However, what happens if we mutate the value in the inner environment?
+
+```javascript
+const allHallowsEve = [2012, 10, 31];
+(function (halloween) {
+  halloween[0] = 2013;
+})(allHallowsEve);
+allHallowsEve
+  //=> [2013, 10, 31]
+```
+We haven’t rebound the inner name to a different variable, we’ve mutated the value that both bindings share.
+
+- Declaring a variable `const` does not prevent us from mutating its value, only from rebinding its name. This is an important distinction.
