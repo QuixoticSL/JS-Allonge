@@ -258,3 +258,7 @@ allHallowsEve
 We haven’t rebound the inner name to a different variable, we’ve mutated the value that both bindings share.
 
 - Declaring a variable `const` does not prevent us from mutating its value, only from rebinding its name. This is an important distinction.
+
+### November 21st 2017 ###
+- Linked lists often use structure sharing. Structure sharing is what makes linked lists so fast for taking everything but the first item of a list: We aren’t making a new list, we’re using some of the old list.
+- We don’t have to remember to use copying operations when we pass it as a value to a function, or extract some data from it. We just use the data, and the less we mutate it, the fewer the times we have to think about whether making changes will be “safe.”
