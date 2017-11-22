@@ -262,3 +262,9 @@ We haven’t rebound the inner name to a different variable, we’ve mutated the
 ### November 21st 2017 ###
 - Linked lists often use structure sharing. Structure sharing is what makes linked lists so fast for taking everything but the first item of a list: We aren’t making a new list, we’re using some of the old list.
 - We don’t have to remember to use copying operations when we pass it as a value to a function, or extract some data from it. We just use the data, and the less we mutate it, the fewer the times we have to think about whether making changes will be “safe.”
+
+### November 22nd 2017 ###
+- JavaScript does not permit us to rebind a name that has been bound with `const`. We can shadow it by using const to declare a new binding with a new function or block scope, but we cannot rebind a name that was bound with `const` in an existing scope.
+- Rebinding parameters is usually avoided, but what about rebinding names we declare within a function? What we want is a statement that works like `const`, but permits us to rebind variables. JavaScript has such a thing, it’s called `let`.
+- Some programmers dislike deliberately shadowing variables. The suggestion is that shadowing a variable is confusing code. If you buy that argument, the way that shadowing works in JavaScript exists to protect us from accidentally shadowing a variable when we move code around.
+- Shadowing a `const` with a `let` does not permit it to be rebound in its original scope.
