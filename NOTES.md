@@ -272,3 +272,4 @@ We haven’t rebound the inner name to a different variable, we’ve mutated the
 ### November 23rd 2017 ###
 - Declaring `age` twice does not cause an error(!), and the inner declaration does not shadow the outer declaration. All `var` declarations behave as if they were hoisted to the top of the function, a little like function declarations.
 - But, again, it is unwise to expect consistency. A function declaration can appear anywhere within a function, but the declaration and the definition are hoisted.
+- In that way, `var` is a little like `const` and `let`, we should always declare and bind names before using them.
