@@ -281,4 +281,69 @@ We haven’t rebound the inner name to a different variable, we’ve mutated the
 ### November 25th 2017 ###
 - “copy-on-read”, because when we attempt the parent to “read” the value of a child of the list, we make a copy and read the copy of the child. Thereafter, we can write to the parent or the copy of the child freely.
 - Why are we copying? In case we modify a child list. Ok, what if we do this: Make the copy when we know we are modifying the list. When do we know that? When we call `set`.
-- Copy-on-write is the name given to the policy that whenever a task attempts to make a change to the shared information, it should first create a separate (private) copy of that information to prevent its changes from becoming visible to all the other tasks.
+- Copy-on-write is the name given to the policy that whenever a task attempts to make a change to the shared information, it should first create a separate (private) copy of that information to prevent its changes from becoming visible to all the other tasks. It’s much cheaper than pessimistically copying structures when you make an infrequent number of small changes, but if you tend to make a lot of changes to some that you aren’t sharing, it’s more expensive.
+
+```javascript
+const EMPTY = null;
+
+const isEmpty = (node) => node === EMPTY;
+
+const pair = (first, rest = EMPTY) => ({first, rest});
+
+const list = (...elements) => {
+  const [first, ...rest] = elements;
+  
+  return elements.length === 0
+    ? EMPTY
+    : pair(first, list(...rest))
+}
+
+const forceAppend = (list1, list2) => {
+  if (isEmpty(list1)) {
+    return "FAIL!"
+  }
+  if (isEmpty(list1.rest)) {
+    list1.rest = list2;
+  }
+  else {
+    forceAppend(list1.rest, list2);
+  }
+}
+
+const tortoiseAndHare = (aPair) => {
+  let tortoisePair = aPair,
+      harePair = aPair.rest;
+  
+  while (true) {
+    if (isEmpty(tortoisePair) || isEmpty(harePair)) {
+      return false;
+    }
+    if (tortoisePair.first === harePair.first) {
+      return true;
+    }
+    
+    harePair = harePair.rest;
+    
+    if (isEmpty(harePair)) {
+      return false;
+    }
+    if (tortoisePair.first === harePair.first) {
+      return true;
+    }
+    
+    tortoisePair = tortoisePair.rest;
+    harePair = harePair.rest;
+  }
+};
+
+const aList = list(1, 2, 3, 4, 5);
+
+tortoiseAndHare(aList)
+  //=> false
+
+forceAppend(aList, aList.rest.rest);
+
+tortoiseAndHare(aList);
+  //=> true
+```
+This algorithm is called “The Tortoise and the Hare,” and was discovered by Robert Floyd in the 1960s. You have two node references, and one traverses the list at twice the speed of the other. No matter how large it is, you will eventually have the fast reference equal to the slow reference, and thus you’ll detect the loop.
