@@ -347,3 +347,22 @@ tortoiseAndHare(aList);
   //=> true
 ```
 This algorithm is called “The Tortoise and the Hare,” and was discovered by Robert Floyd in the 1960s. You have two node references, and one traverses the list at twice the speed of the other. No matter how large it is, you will eventually have the fast reference equal to the slow reference, and thus you’ll detect the loop.
+
+### November 27th 2017 ###
+- JavaScript has a particularly low-level version of for loop that mimics the semantics of the C language. Summing the elements of an array can be accomplished with:
+```javascript
+const arraySum = (array) => {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; ++i) {
+    sum += array[i];
+  }
+  return sum
+}
+
+arraySum([1, 4, 9, 16, 25])
+  //=> 55
+```
+
+- Iterators are functions. When they iterate over an array or linked list, they are traversing something that is already there. But they could just as easily manufacture the data as they go.
+- A function that starts with a seed and expands it into a data structure is called an unfold. It’s the opposite of a fold. It’s possible to write a generic unfold mechanism
