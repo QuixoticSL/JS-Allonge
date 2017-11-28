@@ -366,3 +366,16 @@ arraySum([1, 4, 9, 16, 25])
 
 - Iterators are functions. When they iterate over an array or linked list, they are traversing something that is already there. But they could just as easily manufacture the data as they go.
 - A function that starts with a seed and expands it into a data structure is called an unfold. It’s the opposite of a fold. It’s possible to write a generic unfold mechanism
+
+### November 28th 2017 ###
+- Please note that unlike most of the other functions discussed in this book, iterators are stateful. There are some important implications of stateful functions. One is that while functions like `take(...)` appear to create an entirely new iterator, in reality they return a decorated reference to the original iterator.
+- For all intents and purposes, once you pass an iterator to a function, you can expect that you no longer “own” that iterator, and that its state either has changed or will change.
+- Kestrel, Idiot Bird and Vireo:
+```javascript
+const K = (x) => (y) => x;
+const I = (x) => (x);
+const V = (x) => (y) => (z) => z(x)(y);
+```
+- A constant function is a function that always returns the same thing, no matter what you give it. For example, `(x) => 42` is a constant function that always evaluates to 42. The kestrel, or `K`, is a function that makes constant functions. You give it a value, and it returns a constant function that gives that value.
+- The identity function is a function that evaluates to whatever parameter you pass it. So I(42) => 42. Very simple, but useful. 
+- This is very interesting. Given two values, we can say that K always returns the first value, and given two values, K(I) always returns the second value.
