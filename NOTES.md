@@ -379,3 +379,5 @@ const V = (x) => (y) => (z) => z(x)(y);
 - A constant function is a function that always returns the same thing, no matter what you give it. For example, `(x) => 42` is a constant function that always evaluates to 42. The kestrel, or `K`, is a function that makes constant functions. You give it a value, and it returns a constant function that gives that value.
 - The identity function is a function that evaluates to whatever parameter you pass it. So I(42) => 42. Very simple, but useful. 
 - This is very interesting. Given two values, we can say that K always returns the first value, and given two values, K(I) always returns the second value.
+
+### November 29th 2017 ###
