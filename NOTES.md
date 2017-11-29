@@ -381,3 +381,11 @@ const V = (x) => (y) => (z) => z(x)(y);
 - This is very interesting. Given two values, we can say that K always returns the first value, and given two values, K(I) always returns the second value.
 
 ### November 29th 2017 ###
+- As an aside, the Vireo is a little like JavaScript’s `.apply` function. It says, “take these two values and apply them to this function.” There are other, similar combinators that apply values to functions. One notable example is the “thrush” or T combinator: It takes one value and applies it to a function. It is known to most programmers as `.tap`.
+- We can use pure functions to represent a linked list.
+- `aPair === EMPTY ? doSomething : doSomethingElse` follows the pattern that the function doing the work inspects the data structure.
+- Empty list syntax: `const EMPTYLIST = (whenEmpty, unlessEmpty) => whenEmpty()`
+- Node of a list syntax: `const node = (x) => (y) => (whenEmpty, unlessEmpty) => unlessEmpty(pair(x)(y));`
+- Practically speaking, languages like JavaScript already provide arrays with mapping and folding methods, choice operations, and other rich constructs. Knowing how to make a linked list out of functions is not really necessary for the working programmer. (Knowing that it can be done, on the other hand, is very important to understanding computer science.)
+- Having a list know itself whether it is empty hides implementation information from the code that uses lists. This is a fundamental principle of good design. It is a tenet of Object-Oriented Programming, but it is not exclusive to OOP: We can and should design data structures to hide implementation information from the code that use them, whether we are working with functions, objects, or both.
+- Hiding implementation information: Instead of directly manipulating part of an entity, pass it a function and have it call our function with the part we want. And instead of testing some property of an entity and making a choice of our own with `?:` (or `if`), pass the entity the work we want done for each case and let it test itself.
