@@ -389,3 +389,10 @@ const V = (x) => (y) => (z) => z(x)(y);
 - Practically speaking, languages like JavaScript already provide arrays with mapping and folding methods, choice operations, and other rich constructs. Knowing how to make a linked list out of functions is not really necessary for the working programmer. (Knowing that it can be done, on the other hand, is very important to understanding computer science.)
 - Having a list know itself whether it is empty hides implementation information from the code that uses lists. This is a fundamental principle of good design. It is a tenet of Object-Oriented Programming, but it is not exclusive to OOP: We can and should design data structures to hide implementation information from the code that use them, whether we are working with functions, objects, or both.
 - Hiding implementation information: Instead of directly manipulating part of an entity, pass it a function and have it call our function with the part we want. And instead of testing some property of an entity and making a choice of our own with `?:` (or `if`), pass the entity the work we want done for each case and let it test itself.
+
+### November 30th 2017 ###
+- In JavaScript, arrays have a `.map` method. Map takes a function as an argument, and applies it to each of the elements of the array, then returns the results in another array.
+- `const map = (list, fn) => list.map(fn);` a function that behaves like `.map`
+- `mapWith`, a function that wraps around map and turns any other function into a mapper. `mapWith` is very simple: `const mapWith = (fn) => (list) => list.map(fn);`
+- It reverses the arguments, taking the function first and the list second. It also “curries” the function: Instead of taking two arguments, it takes one argument and returns a function that takes another argument.
+- Assigning properties from one object to another (also called “cloning” or “shallow copying”) is a basic building block that we will later use to implement more advanced paradigms like mixins.
