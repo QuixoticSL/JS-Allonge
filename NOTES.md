@@ -396,3 +396,12 @@ const V = (x) => (y) => (z) => z(x)(y);
 - `mapWith`, a function that wraps around map and turns any other function into a mapper. `mapWith` is very simple: `const mapWith = (fn) => (list) => list.map(fn);`
 - It reverses the arguments, taking the function first and the list second. It also “curries” the function: Instead of taking two arguments, it takes one argument and returns a function that takes another argument.
 - Assigning properties from one object to another (also called “cloning” or “shallow copying”) is a basic building block that we will later use to implement more advanced paradigms like mixins.
+
+### December 1st 2017 ###
+- The Y combinator enables you to make recursive functions without needing to bind a function to a name in an environment. With fixed-point combinators it’s possible to compute everything computable without binding names.
+- An expression is any valid unit of code that resolves to a value.
+- JavaScript supports *quasi-literal* strings, a/k/a “Template Strings” or “String Interpolation Expressions.” A quasi-literal string is something that looks like a string literal, but is actually an expression. Quasi-literal strings are denoted with back quotes, and most strings that can be expressed as literals have the exact same meaning as quasi-literals
+- A quasi-literal can contain an expression to be evaluated. This is called *interpolation*
+- A popular number for nerds is ${40 + 2} //=> 'A popular number for nerds is 42'
+- JavaScript evaluates the quasi-literal when the function is invoked and the quasi-literal inside the function’s body is evaluated.
+- OOP to me means only messaging, local retention and protection and hiding of state-process, and extreme late-binding of all things.
