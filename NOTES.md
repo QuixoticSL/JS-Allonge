@@ -405,3 +405,14 @@ const V = (x) => (y) => (z) => z(x)(y);
 - A popular number for nerds is ${40 + 2} //=> 'A popular number for nerds is 42'
 - JavaScript evaluates the quasi-literal when the function is invoked and the quasi-literal inside the function’s body is evaluated.
 - OOP to me means only messaging, local retention and protection and hiding of state-process, and extreme late-binding of all things.
+
+### December 2nd 2017 ###
+- Information hiding is the ability to prevent certain aspects of a class or software component from being accessible to its clients, using either programming language features (like private variables) or an explicit exporting policy.
+- Consider a stack data structure. There are three basic operations: Pushing a value onto the top (`push`), popping a value off the top (`pop`), and testing to see whether the stack is empty or not (`isEmpty`). These three operations are the stable interface.
+- Hiding information (or “state”) is the design principle that allows us to limit the coupling between components of software.
+- Given an object that holds our state (an array and an index39), we can easily implement our three operations as functions. Bundling the functions with the state does not require any special “magic” features. JavaScript objects can have elements of any type, including functions.
+- Other languages may separate methods from functions very strictly, but in JavaScript every method is a function, but not all functions are methods.
+- A deeply fundamental practice is to build components out of smaller components. The choice of how to divide a component into smaller components is called factoring, after the operation in number theory.
+- Each component is a value, and the components can be put together into a single object or encapsulated with a closure.
+- Another practice that many people consider fundamental is to extend an implementation. Meaning, they wish to define a new data structure in terms of adding new operations and semantics to an existing data structure.
+- Encapsulation and Extension exist in a natural state of tension. A program with elaborate encapsulation resists breakage but can also be difficult to refactor in other ways. Be mindful of when it’s best to Compose and when it’s best to Extend.
