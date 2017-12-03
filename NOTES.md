@@ -416,3 +416,11 @@ const V = (x) => (y) => (z) => z(x)(y);
 - Each component is a value, and the components can be put together into a single object or encapsulated with a closure.
 - Another practice that many people consider fundamental is to extend an implementation. Meaning, they wish to define a new data structure in terms of adding new operations and semantics to an existing data structure.
 - Encapsulation and Extension exist in a natural state of tension. A program with elaborate encapsulation resists breakage but can also be difficult to refactor in other ways. Be mindful of when it’s best to Compose and when it’s best to Extend.
+
+### December 3rd ###
+- Closures couple functions to environments, and that makes them very elegant in the small, and very handy for making opaque data structures. Alas, their strength in the small is their weakness in the large. When you’re trying to make reusable components, this coupling is sometimes a hindrance.
+- Any time we must do the same repetitive thing over and over and over again, we industrial humans try to build a machine to do it for us. JavaScript is one such machine. When we write a function expression using the compact method syntax (or use the `function` keyword instead of the fat arrow), and then invoke that function using `.` notation, JavaScript binds the “receiver” of a “method invocation” to the special name `this`.
+- Now we are relying on JavaScript to set the value of `this` whenever we invoke one of these functions using the `.` or `[` and `]` operators.
+- Every time you invoke a function that is a member of an object, JavaScript binds that object to the name `this` in the environment of the function just as if it was an argument.
+- Being able to copy objects is an example of a larger concern: Being able to share functions between objects. That’s how classes work. That’s how extending objects works. Being able to share functions means being able to compose and reuse functionality.
+- Closures tightly couple functions to the environments where they are created limiting their flexibility. Using `this` alleviates the coupling.
