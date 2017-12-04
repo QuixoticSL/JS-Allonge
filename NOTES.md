@@ -424,3 +424,7 @@ const V = (x) => (y) => (z) => z(x)(y);
 - Every time you invoke a function that is a member of an object, JavaScript binds that object to the name `this` in the environment of the function just as if it was an argument.
 - Being able to copy objects is an example of a larger concern: Being able to share functions between objects. That’s how classes work. That’s how extending objects works. Being able to share functions means being able to compose and reuse functionality.
 - Closures tightly couple functions to the environments where they are created limiting their flexibility. Using `this` alleviates the coupling.
+
+### December 4th 2017 ###
+- JavaScript programmers talk about functions having a “context” when being called. `this` is bound to the context.
+- The important thing to understand is that the context for a function being called is set by the way the function is called, not the function itself.
