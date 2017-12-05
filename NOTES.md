@@ -428,3 +428,6 @@ const V = (x) => (y) => (z) => z(x)(y);
 ### December 4th 2017 ###
 - JavaScript programmers talk about functions having a “context” when being called. `this` is bound to the context.
 - The important thing to understand is that the context for a function being called is set by the way the function is called, not the function itself.
+
+### December 5th 2017 ###
+- We learned that a decorator takes a function as an argument, returns a function, and there’s a semantic relationship between the two.
