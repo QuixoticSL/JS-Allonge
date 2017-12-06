@@ -431,3 +431,24 @@ const V = (x) => (y) => (z) => z(x)(y);
 
 ### December 5th 2017 ###
 - We learned that a decorator takes a function as an argument, returns a function, and there’s a semantic relationship between the two.
+
+### December 6th 2017 ###
+- *Fibonacci number*
+```javascript
+const fibonacci = (n) =>
+  n < 2
+    ? n
+    : fibonacci(n-2) + fibonacci(n-1);
+
+[0,1,2,3,4,5,6,7,8].map(fibonacci)
+//=> [0,1,1,2,3,5,8,13,21]
+```
+- `Memoized` is used with functions so they can remember what they have calculated, so that they don't have to recalculate the same value a second time. A function has to be "idempotent", which means the function always returns the same results given the same arguments.
+- `getWith` is an interesting function: it takes the name of an attribute and returns a function. That function then extracts the value of that attribute from an object.
+
+```javascript
+const getWith = (attr) => (object) => object[attr]
+```
+Example code for the function `getWith`.
+
+- `pluckWith` is a combination between `getWith` and `mapWith`.
