@@ -452,3 +452,8 @@ const getWith = (attr) => (object) => object[attr]
 Example code for the function `getWith`.
 
 - `pluckWith` is a combination between `getWith` and `mapWith`.
+
+### December 7th 2017 ###
+- JavaScript has objects, and by default, those objects are dictionaries. By default, objects directly manipulate each other’s state. Methods can be added to, or removed from objects at run time. 
+- In JavaScript, object and array literals construct objects that delegate behaviour to the standard library’s object prototype and array prototype, respectively. JavaScript also supports using `Object.create` to construct objects with or without a prototype, and `new` to construct objects using a constructor function.
+- JavaScript also has a `class` keyword that provides syntactic sugar for writing constructor functions and prototypes in a declarative fashion.
