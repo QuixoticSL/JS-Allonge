@@ -457,3 +457,9 @@ Example code for the function `getWith`.
 - JavaScript has objects, and by default, those objects are dictionaries. By default, objects directly manipulate each other’s state. Methods can be added to, or removed from objects at run time. 
 - In JavaScript, object and array literals construct objects that delegate behaviour to the standard library’s object prototype and array prototype, respectively. JavaScript also supports using `Object.create` to construct objects with or without a prototype, and `new` to construct objects using a constructor function.
 - JavaScript also has a `class` keyword that provides syntactic sugar for writing constructor functions and prototypes in a declarative fashion.
+
+### December 8th 2017 ###
+- Acting on the elements of a collection one at a time is called iterating over the contents, and JavaScript has a standard way to iterate over the contents of collections.
+- In programs involving large collections of objects, it can be handy to implement iterators as objects, rather than functions. 
+- To ensure that the method would not conflict with any existing code, JavaScript provides a *symbol*. Symbols are unique constants that are guaranteed not to conflict with existing strings. The expression `Symbol.iterator` evaluates to a special symbol representing the name of the method that objects should use if they return an iterator object.
+- The `for...of` loop works directly with any object that is iterable, meaning it works with any object that has a `Symbol.iterator` method that returns an object iterator. 
