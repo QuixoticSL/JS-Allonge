@@ -463,3 +463,35 @@ Example code for the function `getWith`.
 - In programs involving large collections of objects, it can be handy to implement iterators as objects, rather than functions. 
 - To ensure that the method would not conflict with any existing code, JavaScript provides a *symbol*. Symbols are unique constants that are guaranteed not to conflict with existing strings. The expression `Symbol.iterator` evaluates to a special symbol representing the name of the method that objects should use if they return an iterator object.
 - The `for...of` loop works directly with any object that is iterable, meaning it works with any object that has a `Symbol.iterator` method that returns an object iterator. 
+
+### December 9th 2017 ###
+- Attempting to spread an infinite iterable into an array is always going to fail: `firstAndSecondElement(...Numbers) //Infinite loop`
+- *Ordered collections* are collections where every time you iterate over them/it, you get the elements of the collection in order, starting from the beginning.
+```javascript
+const abc = ["a","b","c"];
+
+for (const i of abc){
+  console.log(i);
+} // Always returns: a b c
+```
+- Using `mapWith` on ordered collections:
+```javascript
+const mapWith = (fn, collection) = >
+  ({
+    [Symbol.iterator] () {
+      const iterator = collection[Symbol.iterator]();
+
+      return {
+        next (){
+          const {done, value} = iterator.next();
+
+          return ({done, value: done ? undefined : fn(value)})
+        }
+      }
+    }
+  });
+```
+- This illustrates the general pattern of working with ordered collections: We make them iterables, meaning that they have a `[Symbol.iterator]` method, that returns an iterator.
+- JS's in house `Array` has a property called `.from` which gathers an iterable into a particular collection type.
+```javascript
+Array.from(UpTo1000) //[1,81,121,361,441,841,961]
