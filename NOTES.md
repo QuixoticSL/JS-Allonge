@@ -495,3 +495,33 @@ const mapWith = (fn, collection) = >
 - JS's in house `Array` has a property called `.from` which gathers an iterable into a particular collection type.
 ```javascript
 Array.from(UpTo1000) //[1,81,121,361,441,841,961]
+```
+
+### December 10th 2017 ###
+- Fibonacci sequence generator:
+```javascript
+const fibonacci = () => {
+  let a, b;
+
+  console.log(a = 0);
+  console.log(b = 1);
+
+  while(true) {
+    [a, b] = [b, a + b];
+    console.log(b);
+  }
+}
+fibonacci() //0 1 1 2 3 5 8 13...
+```
+- The generation version has state, but it’s implicit in JavaScript’s linear control flow. Whereas the iteration version must make that state explicit.
+- There are two diferences when writing a js generator function: the declaration must be `function *` and we use `yield` instead of `return`.
+- When we invoke such a function we get an iterator object back:
+```javascript
+function * only (something) {
+  yield something;
+};
+
+only("you").next() //{"done": false, value: "you"}
+```
+- Generators are *coroutines* meaning they are computer program components that generalize subroutines for nonpreemptive multitasking, by allowing multiple entry points for suspending and resuming execution at certain locations.
+- There are two execution contexts that are going on in iterators: the producer, which is the iterator and the consumer, which is the code that iterates over.
