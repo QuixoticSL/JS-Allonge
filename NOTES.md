@@ -559,3 +559,13 @@ for (const i of fibonacci()) {
 - A function that returns an iterable is usually much more simpler if you write it as a genarator, rather than a function that returns an iterable object.
 
 - `yield *` yield all of the elements of an iterable, in order. It comes in handy when writing generator functions that operate on or create iterables.
+- Generator utiliziting `mapWith`
+```javascript
+function * mapWith (fn, iterable) {
+  for (const element of iterable) {
+    yield fn(element);
+  }
+}
+```
+- In JS we build single-responsibility functions and objects, so that we can compose these together to build more full-featured objects and algorithms.
+- This “fat object” style springs from a misunderstanding: When we say a collection should know how to perform a map over itself, we don’t need for the collection to handle every single detail. That would be like saying that when we ask a bank teller for some cash, they personally print every bank note.
