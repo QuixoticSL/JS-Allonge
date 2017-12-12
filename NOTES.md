@@ -525,3 +525,33 @@ only("you").next() //{"done": false, value: "you"}
 ```
 - Generators are *coroutines* meaning they are computer program components that generalize subroutines for nonpreemptive multitasking, by allowing multiple entry points for suspending and resuming execution at certain locations.
 - There are two execution contexts that are going on in iterators: the producer, which is the iterator and the consumer, which is the code that iterates over.
+
+### December 12th 2017 ###
+```javascript
+const ThreeNumbers = {
+  *[Symbol.iterator] () {
+    yield 1;
+    yield 2;
+    yield 3
+  }
+}
+```
+- Using `[Symbol.iterator]` makes it iterable, but not an iterator. The star symbol makes it a generator, as written before.
+
+- Fibonacci sequence generator.
+```javascript
+function * fibonacci () {
+  let a, b;
+
+  yield a = 0;
+  yield b = 1;
+  
+  while (true) {
+    [a, b] = [b, a + b]
+    yield b;
+  }
+}
+
+for (const i of fibonacci()) {
+  console.log(i);
+} // 0 1 1 2 3 5 8 13 21 34...
