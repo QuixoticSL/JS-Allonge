@@ -555,3 +555,7 @@ function * fibonacci () {
 for (const i of fibonacci()) {
   console.log(i);
 } // 0 1 1 2 3 5 8 13 21 34...
+```
+- A function that returns an iterable is usually much more simpler if you write it as a genarator, rather than a function that returns an iterable object.
+
+- `yield *` yield all of the elements of an iterable, in order. It comes in handy when writing generator functions that operate on or create iterables.
