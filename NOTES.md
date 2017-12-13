@@ -569,3 +569,20 @@ function * mapWith (fn, iterable) {
 ```
 - In JS we build single-responsibility functions and objects, so that we can compose these together to build more full-featured objects and algorithms.
 - This “fat object” style springs from a misunderstanding: When we say a collection should know how to perform a map over itself, we don’t need for the collection to handle every single detail. That would be like saying that when we ask a bank teller for some cash, they personally print every bank note.
+
+### December 13th 2017 ###
+- In terms of programming laziness means not doing anything remotely towards working untill you know you need the result of the work.
+
+```javascript
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  .map((x) => x * x)
+  .filter((x) => x % 2 == 0)
+  .reduce((seed, element) => seed + element, 0)
+
+Pair.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  .map((x) => x * x)
+  .filter((x) => x % 2 == 0)
+  .reduce((seed, element) => seed + element, 0)
+```
+In practice the array here is better since it works within the engine, while the linked list does its work in JS. `.map` and `.filter` produce new arrays when they are gathering results. They produce two temp arrays which are then discarded.
+- *Eager* collections, similar to arrays, return a collection of their own type from each of the methods. Any collection can be *Eager* if it is gatherable, meaning that it contains a `.from` method.
