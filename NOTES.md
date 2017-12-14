@@ -586,3 +586,15 @@ Pair.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 In practice the array here is better since it works within the engine, while the linked list does its work in JS. `.map` and `.filter` produce new arrays when they are gathering results. They produce two temp arrays which are then discarded.
 - *Eager* collections, similar to arrays, return a collection of their own type from each of the methods. Any collection can be *Eager* if it is gatherable, meaning that it contains a `.from` method.
+
+### December 14th 2017 ###
+- There’s an old joke that a mathematician is someone who will take a five-minute problem, then spend an hour proving it is equivalent to another problem they have already solved.
+- Looking at a players moves in a game is similar to looking at an array with values.
+- Tick, tack, toe game represented with arrays:
+```javascript
+[
+'o', 'x', '',
+'', '', '',
+'', '', '',
+]
+```
