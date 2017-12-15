@@ -598,3 +598,44 @@ In practice the array here is better since it works within the engine, while the
 '', '', '',
 ]
 ```
+
+### December 15th 2017 ###
+- Function for naughts and crosses.
+```javascript
+  const statefulNaughtsAndCrosses = () => {
+  const state = [
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+  ];
+  
+  return (x = false) => {
+    if (x) {
+      if (state[x] === ' ') {
+        state[x] = 'x';
+      }
+      else throw "occupied!"
+    }
+    let o = moveLookupTable[state];
+    state[o] = 'o';
+    return o;
+  }
+};
+
+const aNaughtsAndCrossesGame = statefulNaughtsAndCrosses();
+
+// our opponent makes the first move
+aNaughtsAndCrossesGame()
+  //=> 0
+  
+// then we move, and get its next move back
+aNaughtsAndCrossesGame(1)
+  //=> 6
+  
+// then we move, and get its next move back
+aNaughtsAndCrossesGame(4)
+  //=> 3
+```
+- It is absolutely possible to use a generator interactively, passing values in and receiving a value in return, just like an ordinary function.
+- `Symbol` is the built in function in JS that returns a unique entity.
+- In computer science, a metaobject is an object that manipulates, creates, describes, or implements other objects (including itself). The object that the metaobject is about is called the base object. Some information that a metaobject might store is the base object’s type, interface, class, methods, attributes, parse tree, etc.
