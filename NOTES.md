@@ -639,3 +639,7 @@ aNaughtsAndCrossesGame(4)
 - It is absolutely possible to use a generator interactively, passing values in and receiving a value in return, just like an ordinary function.
 - `Symbol` is the built in function in JS that returns a unique entity.
 - In computer science, a metaobject is an object that manipulates, creates, describes, or implements other objects (including itself). The object that the metaobject is about is called the base object. Some information that a metaobject might store is the base object’s type, interface, class, methods, attributes, parse tree, etc.
+
+### December 17th 2017 ###
+- A "naive" object is an object that has a certain behaviour and state, but lacks division of responsibility between its state and its behaviour.
+- Metaobjects solve the lack-of-separation problem by separating the *domain-specific* properties of objects from their *implementation-specific* properties and the functions that represent their behaviour. We are essentially separating the mechanics of behaviour from the domain properties of the base object.
