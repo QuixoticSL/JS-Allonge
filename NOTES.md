@@ -643,3 +643,28 @@ aNaughtsAndCrossesGame(4)
 ### December 17th 2017 ###
 - A "naive" object is an object that has a certain behaviour and state, but lacks division of responsibility between its state and its behaviour.
 - Metaobjects solve the lack-of-separation problem by separating the *domain-specific* properties of objects from their *implementation-specific* properties and the functions that represent their behaviour. We are essentially separating the mechanics of behaviour from the domain properties of the base object.
+- The most basic metaobject is the *mixin*. First we separate domain and behaviour properties:
+```javascript
+const sam = {
+  firstName: 'Sam',
+  lastName: 'Lowry'
+};
+
+const Person = {
+  fullName () {
+    return this.firstName + " " + this.lastName;
+  },
+  rename (first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    return this;
+  }
+};
+```
+And then add `Object.assign` to mix the two:
+```javascript
+Object.assign(sam, Person);
+
+sam.rename
+```
+- It copies references to each function from the mixin into the target object.
