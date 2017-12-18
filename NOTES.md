@@ -668,3 +668,9 @@ Object.assign(sam, Person);
 sam.rename
 ```
 - It copies references to each function from the mixin into the target object.
+
+### December 18th 2017 ###
+- Forwarding is another way of building a metaobject, that metaobject then defines behaviour for another object and forwards one or more method calls to a metaobject.
+- Forwarding is a relationship between an object that receives a method invocation receiver and a provider object. The key idea is that when forwarding, the provider object handles each method *in its own context*.
+- Mixing in is "early bound" and forwarding is "late bound".
+- The differences between delegation and forwarding is similar to receiving an email asking us to donate some money to a charity. If you *forward* the email to a friend, and the friend donates money, the friend is donating THEIR own money and getting THEIR own tax receipt. But if you *delegate* responding to your accountant, the accountain donates YOUR money to the charity and YOU receive the tax receipt.
