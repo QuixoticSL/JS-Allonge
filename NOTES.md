@@ -674,3 +674,16 @@ sam.rename
 - Forwarding is a relationship between an object that receives a method invocation receiver and a provider object. The key idea is that when forwarding, the provider object handles each method *in its own context*.
 - Mixing in is "early bound" and forwarding is "late bound".
 - The differences between delegation and forwarding is similar to receiving an email asking us to donate some money to a charity. If you *forward* the email to a friend, and the friend donates money, the friend is donating THEIR own money and getting THEIR own tax receipt. But if you *delegate* responding to your accountant, the accountain donates YOUR money to the charity and YOU receive the tax receipt.
+
+### December 20th 2017 ###
+- Prototypes have delegation semantics: They are late bound and evaluated at the receiver's context.
+- Delegation is a many-to-many (MTM) relationship, while prototypes are stricly mant-to-one, since `Object.create` only allows you to specify one prototype for an object you are creating.
+- Several objects can share one prototype:
+```javascript
+const name = Object.create(Person);
+const nameOnceAgain = Object.create(Person);
+```
+- Prototypes are open for extension since you can change their behavior after you create objects with them.
+<!---
+Left off: Trees (prototypes)
+-->
