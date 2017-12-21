@@ -684,6 +684,29 @@ const name = Object.create(Person);
 const nameOnceAgain = Object.create(Person);
 ```
 - Prototypes are open for extension since you can change their behavior after you create objects with them.
+
+### December 21th 2017 ###
+- Using prototypes and mixins together.
+```javascript
+const Laborer = {
+//
+};
+const Manager = {
+//
+};
+const Probationary = {
+//
+};
+
+const LaborerOnProbation = Object.assign({}, Laborer, Probationary);
+const ManagerOnProbation = Object.assign({}, Manager, Probationary);
+```
+- Functions themselfs are instances, and they also have methods.
+- When you do something that treats a value like an object, JavaScript checks to see whether the value actually is an object. If the value is actually a primitive, JavaScript temporarily makes an object that is a kinda-sorta copy of the primitive and that kinda-sorta copy has methods and you are temporarily fooled into thinking that `"Some string"` has a `.split` method.
+- These kinda-sorta copies are called *String instances* as opposed to *String primitives*. We create instances with the `new` keyword.
+```javascript
+new String("Name Surname") === "Name Surname" //False
+```
 <!---
-Left off: Trees (prototypes)
+Finish the Cup.
 -->
