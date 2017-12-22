@@ -707,6 +707,10 @@ const ManagerOnProbation = Object.assign({}, Manager, Probationary);
 ```javascript
 new String("Name Surname") === "Name Surname" //False
 ```
+### December 22nd 2017 ###
+- `new` creates a POJO, every time we call `new` with a function and get an object back, we get a unique object.
+- Objects created with `new` are called *instances*. Instances of the function that creates them. `const i = new Ur()` where `i` is an instance of `Ur` or that `Ur` is the *constructor* of `i`.
+- You can set elements of an instance, and they “override” the constructor’s prototype, but they don’t actually change the constructor’s prototype.
 <!---
-Finish the Cup.
+Class with class
 -->
