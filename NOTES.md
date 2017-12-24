@@ -711,6 +711,24 @@ new String("Name Surname") === "Name Surname" //False
 - `new` creates a POJO, every time we call `new` with a function and get an object back, we get a unique object.
 - Objects created with `new` are called *instances*. Instances of the function that creates them. `const i = new Ur()` where `i` is an instance of `Ur` or that `Ur` is the *constructor* of `i`.
 - You can set elements of an instance, and they “override” the constructor’s prototype, but they don’t actually change the constructor’s prototype.
-<!---
-Class with class
--->
+
+### December 24th 2017 ###
+- *Classes* are simply syntactic sugar for constructors and prototypes or more specifically constructor function which are written with prototypes.
+```javascript
+class Person {
+  constructor (first, last) {
+    this.rename(first, last);
+  }
+  fullName () {
+    return this.firstName + " " + this.lastName;
+  }
+  rename (first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    return this;
+  }
+};
+```
+- The `class` keyword creates a *class expression*, and an expression is a value that can be used everywhere, just like a named function expression.
+- An *instance method* is a function defined in the constructor's prototype. Every instance acquires this behaviour unless otherwise "overridden".
+- Object methods are really easy to create with Plain Old JavaScript Objects, because they’re the only kind of method you can use. They are defined within the object. Having different "instances" of the same object means that every object will have an object method.
