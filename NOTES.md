@@ -734,3 +734,11 @@ class Person {
 - Object methods are really easy to create with Plain Old JavaScript Objects, because they’re the only kind of method you can use. They are defined within the object. Having different "instances" of the same object means that every object will have an object method.
 - Create class hierarchies by chaining prototypes. Only problem is they couple classes to each other. When one class extends another, its methods can access any of the properties and methods defined anywhere on the prototype chain.
 - The *fragile base class problem* is a fundamental architectural problem of object-oriented programming systems where base classes (superclasses) are considered “fragile” because seemingly safe modifications to a base class, when inherited by the derived classes, may cause the derived classes to malfunction. The programmer cannot determine whether a base class change is safe simply by examining in isolation the methods of the base class.
+
+### December 25th 2017 ###
+- Functions are *first-class entities*, we can store them in data structures, pass them to other functions and return them from functions.
+- This is what makes decorators and combinators possible.
+- The fact that all functions are called in the exact same way. We write `foo(bar)` and know that we will evaluate `bar`, and pass the resulting value to the function we get by evaluating `foo`.
+<!---
+Blue and yellow functions.
+--> 
