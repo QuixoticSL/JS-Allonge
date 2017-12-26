@@ -739,6 +739,33 @@ class Person {
 - Functions are *first-class entities*, we can store them in data structures, pass them to other functions and return them from functions.
 - This is what makes decorators and combinators possible.
 - The fact that all functions are called in the exact same way. We write `foo(bar)` and know that we will evaluate `bar`, and pass the resulting value to the function we get by evaluating `foo`.
+
+### December 26th 2017 ###
+- Functions are blue, methods are yellow.
+- Green code refers to writing higher-order functions like decorators and combinators in a style that works for both "pure" functions and for methods. We use the `function` keyword so that `this` is possible or bound, and then invoke our decorated function using `.call` so that we can pass `this` along.
+- In short this means we can decorate both methods *and* functions:
+```javascript
+const maybe = (method) =>
+  function (...args) {
+    for (let arg of args) {
+      if (arg == null) return arg;
+    }
+    return method.apply(this, args);
+  }
+```
+- Compose in *green* style:
+``` javascript
+const compose = (a, b) =>
+  function (x) {
+    return a.call(this, b.call(this, x));
+  }
+```
+- Yet another colour for functions is *red* for constructors.
+- Constructors have the colour red because the keyword `new` for creating a constructor introduces another kind of function that doesn't compose neatly with other existing functions and combinators.
+- A “factory function” is a function that makes new objects.
+- Objects (as well as ES 2015 maps and sets) are *charmed functions*.
+- *Adaptors* are wrappers which turn red and charmed functions into blue functions.
+- *Dictionaries* make it easier for us to use all of the same tools for combining and manipulating functions on arrays and objects that we do with functions.
 <!---
-Blue and yellow functions.
---> 
+Con Panna: Composing Class Behaviour
+-->
