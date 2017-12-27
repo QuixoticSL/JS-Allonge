@@ -766,6 +766,63 @@ const compose = (a, b) =>
 - Objects (as well as ES 2015 maps and sets) are *charmed functions*.
 - *Adaptors* are wrappers which turn red and charmed functions into blue functions.
 - *Dictionaries* make it easier for us to use all of the same tools for combining and manipulating functions on arrays and objects that we do with functions.
+
+### December 27th 2017 ###
+- We are able to mix functionality into prototypes of "classes" since they are objects and JS builds "classes" out of objects.
+- JS "classes" inherit shared behaviour from the contructor's `prototype` property.
+- Class for TODO items:
+```javascript
+class Todo {
+  constructor (name) {
+    this.name = name || 'Untitled';
+    this.done = false;
+  }
+  do () {
+    this.done = true;
+    return this;
+  }
+  undo () {
+    this.done = false;
+    return this;
+  }
+}
+```
+A mixin that is responsible for colour-coding:
+```javascript
+const Coloured = {
+  setColourRGB ({r, g, b}) {
+    this.colourCode = {r, g, b};
+    return this;
+  },
+  getColourRGB () {
+    return this.colourCode;
+  }
+};
+```
+Mixing TODO and colour-coding together:
+```javascript
+Object.assign(Todo.prototype, Coloured);
+
+new Todo('test')
+  .setColourRGB({r: 1, g: 2, b: 3})
+```
+- It is apparently more elegant to define a mixin as a function rather than an object, calling it a *functional mixin*.
+- Coloured mixin as a function:
+```javascript
+const Coloured = (target) =>
+  Object.assign(target, {
+        setColourRGB ({r, g, b}) {
+      this.colourCode = {r, g, b};
+      return this;
+    },
+    getColourRGB () {
+      return this.colourCode;
+    }
+  });
+
+Coloured(Todo.prototype);
+```
+- Our object mixin pattern does not work this way, the methods defined in a mixin are enumerable by default, and if we carefully defined them to be non-enumerable, `Object.assign` wouldn’t mix them into the target prototype, because `Object.assign` only assigns enumerable properties.
 <!---
-Con Panna: Composing Class Behaviour
+Emulating Multiple Inheritance
 -->
