@@ -823,6 +823,25 @@ const Coloured = (target) =>
 Coloured(Todo.prototype);
 ```
 - Our object mixin pattern does not work this way, the methods defined in a mixin are enumerable by default, and if we carefully defined them to be non-enumerable, `Object.assign` wouldn’t mix them into the target prototype, because `Object.assign` only assigns enumerable properties.
+
+### December 28th 2017###
+- *Multipel inheritance* means creating a class that inherits from more than one mixin for instance. But JS doesn't have the feature.
+- Since it doesn't have multiple inheritence, JS needs to rely on forcing it into a round single inheritance hole:
+```javascript
+class Todo {
+  //...
+}
+class ColouredTodo extends Todo {
+  //...
+}
+class TimeSensitiveTodo extends ColouredTodo {
+  //...
+}
+```
+In this case `TimeSensitiveTodo` is overriding methods from both previous classes.
+- When mixing behaviour in classes we are engaging in open recursion. The methods in each mixin (or prototype in a chain) all have the same context, and therefore refer to the same properties.
+- One way to resist this natural tendency toward coupling is by making sure that each metaobject exposes only the methods it confers upon its receivers. All other methods and properties should be kept private.
+- Using symbols as property keys prevents mixins from accidentally sharing the same property name for different purposes.
 <!---
-Emulating Multiple Inheritance
+More Decorators
 -->
