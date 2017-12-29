@@ -842,6 +842,13 @@ In this case `TimeSensitiveTodo` is overriding methods from both previous classe
 - When mixing behaviour in classes we are engaging in open recursion. The methods in each mixin (or prototype in a chain) all have the same context, and therefore refer to the same properties.
 - One way to resist this natural tendency toward coupling is by making sure that each metaobject exposes only the methods it confers upon its receivers. All other methods and properties should be kept private.
 - Using symbols as property keys prevents mixins from accidentally sharing the same property name for different purposes.
+
+### December 29th 2017 ###
+- Methods are functions which are used to define the behaviour of instances. When a functions is invoked as a method, the name `this` is bound to the instance, and most methods rely on that binding to work properly.
+- When writing higher order functions we need to be careful and make sure they work both as function decoratos and method decorators.
+- When using `this`, if you don't invoke it as a metod it is going to be bound to `undefined` in strict mode.
+- "A trait is a concept used in object-oriented programming: a trait represents a collection of methods that can be used to extend the functionality of a class."
+- Traits are similar to mixins, tho the deference is we don't just define new behaviour, but define ways to extend or override existing behaviour. In JS we solve this problem with *subclass factories*.
 <!---
-More Decorators
+More Decorator Recipes
 -->
