@@ -849,6 +849,16 @@ In this case `TimeSensitiveTodo` is overriding methods from both previous classe
 - When using `this`, if you don't invoke it as a metod it is going to be bound to `undefined` in strict mode.
 - "A trait is a concept used in object-oriented programming: a trait represents a collection of methods that can be used to extend the functionality of a class."
 - Traits are similar to mixins, tho the deference is we don't just define new behaviour, but define ways to extend or override existing behaviour. In JS we solve this problem with *subclass factories*.
-<!---
-More Decorator Recipes
--->
+
+### December 30th 2017 ###
+- Coming from the LISP programming language is a movement where decorating a method with some functionality to be performed *after* the method's body is evaluated.
+- There are also cases where we what some behaviour *before* a method is invoked. An example would be logging invocations.
+- The `provided` and `unless` reipes are combinators that produce method decoratos that apply a precondition to evaluating the base method body. The `provided` combinator turns a function into an ES.later method decorator. The `unless` combinator does the same thing, but the logic is reversed, the decorating function must not evaluate to truthy.
+- Method decorators make it easy to answer the question “what is the behaviour of this method?” But they don’t make it easy to answer the question “what methods share this behaviour?”
+- We can decorate multiple methods in a single declaration. This is called *providing method advice*.
+- Lightweight code interoperates 100% with code from other libraries. The heavyweight way would produce “classes” that don’t easily interoperate with other libraries or code, so you can’t incrementally make changes: You have to “boil the ocean” and commit 100% to the new approach. Heavyweight approaches often demand new kinds of tooling in the build pipeline. Lightweight thinking is portable and future-proof.
+
+### Random notes from the end of the book ###
+- The difference between *prototypes* and *classes* is in delegation or as the author put it: model homes and blueprints. *So if a model home had a kitchen, and you asked the builder to make you a home using the model as a prototype, you could customize your own kitchen. But if you didn’t want to have your own custom kitchen, you would just use the model home’s kitchen to do all your own cooking.*
+
+### This book was amazing to read. At the time of my note taking I was strict on money to buy it so had to read it online. Will definetly purchase the book if/when new editions/iterations come out.###
